@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ActionMenu : MonoBehaviour
 {
 	private GameManager gameManager;
-	private Button interactButton;
+	private Button interactButton, spawnButton;
 	private TMPro.TextMeshProUGUI turnIndicator;
 
 	// Start is called before the first frame update
@@ -14,6 +14,7 @@ public class ActionMenu : MonoBehaviour
     {
 		gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 		interactButton = GameObject.Find("Interact Button").GetComponent<Button>();
+		spawnButton = GameObject.Find("Spawn Button").GetComponent<Button>();
 		turnIndicator = GameObject.Find("Turn Indicator").GetComponent<TMPro.TextMeshProUGUI>();
 	}
 
@@ -22,9 +23,15 @@ public class ActionMenu : MonoBehaviour
 		gameManager.StartInteraction();
 	}
 
+	public void onSpawn()
+	{
+		gameManager.Spawn();
+	}
+
 	void Update()
 	{
 		interactButton.interactable = gameManager.CanInteract();
+		//spawnButton.interactable = gameManager.CanInteract();
 		turnIndicator.text = gameManager.GetCurrentPlayer().Name + "'s turn";
 	}
 }

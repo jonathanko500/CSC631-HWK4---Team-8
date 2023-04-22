@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour
 	{
 		EndTurn();
 	}
+	
+	public void Spawn()
+	{
+		Debug.Log("Something Spawn");
+	}
 
 	public void EndInteractedWith(Hero hero)
 	{

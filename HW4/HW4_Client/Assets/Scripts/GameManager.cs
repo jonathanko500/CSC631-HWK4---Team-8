@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
 	private bool useNetwork;
 	private NetworkManager networkManager;
 
+
+	//spawn obj
+
+	private int gameBoardX, gameBoardY;
+
 	void Start()
 	{
 		DontDestroyOnLoad(gameObject);
@@ -79,6 +84,46 @@ public class GameManager : MonoBehaviour
 	public void Spawn()
 	{
 		Debug.Log("Something Spawn");
+
+		GameObject blockOBJ = Instantiate(HeroPrefab, new Vector3(0, 0, 1), Quaternion.identity);
+		blockOBJ.GetComponentInChildren<Renderer>().material.color = Players[0].Color;
+		Hero spawnOBJ = blockOBJ.GetComponent<Hero>();
+
+		if(spawnOBJ != null){
+			Debug.Log("Spawn OBJ created");
+		}
+
+		
+		//x = 0 - 5
+		//y = 0 - 4
+
+        // Generate a random integer between 0 and 5 (inclusive)
+        gameBoardX = UnityEngine.Random.Range(0, 6);
+		gameBoardY= UnityEngine.Random.Range(0, 5);
+		Debug.Log("Gameboard X = " + gameBoardX);
+		Debug.Log("Gameboard Y = " + gameBoardY);
+
+		//search through gameboard
+		for(int i =0;i< gameBoard.GetLength(0);i++)
+		{
+			for(int j =0; j < gameBoard.GetLength(1); j++)
+			{
+				if(gameBoard[i,j] != null && gameBoard[i,j] != spawnOBJ)
+				{
+					gameBoardX = UnityEngine.Random.Range(0, 6);
+					gameBoardY= UnityEngine.Random.Range(0, 5);
+					// Debug.Log("Gameboard X after search = " + gameBoardX);
+					// Debug.Log("Gameboard Y after search = " + gameBoardY);
+					break;
+				}
+			}
+		}
+
+		gameBoard[gameBoardX, gameBoardY] = spawnOBJ;
+
+
+
+
 	}
 
 	public void EndInteractedWith(Hero hero)

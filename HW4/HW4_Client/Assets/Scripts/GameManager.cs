@@ -82,33 +82,33 @@ public class GameManager : MonoBehaviour
 	}
 	
 	public void Spawn()
-	{
+	{		
 		Debug.Log("Something Spawn");
+		int x = 0;
+		int y = 0;
 		
-
-        // Generate a random integer between 0 and 5 (inclusive)
-        gameBoardX = UnityEngine.Random.Range(1, 6);
-		gameBoardY = UnityEngine.Random.Range(1, 5);
-		//x = 1 - 5
-		//y = 1 - 4
-		
-
-		//search through gameboard
-		for(int i = 0;i< gameBoard.GetLength(0);i++)
+		// Search for an empty spot on the game board
+		bool foundSpot = false;
+		while (!foundSpot)
 		{
-			for(int j = 0; j < gameBoard.GetLength(1); j++)
+			x = UnityEngine.Random.Range(0, 6);
+			y = UnityEngine.Random.Range(0, 5);
+			if (gameBoard[x, y] == null)
 			{
-				if(gameBoard[i,j] != null )
-				{
-					Debug.Log("Gameboard X = " + gameBoardX);
-					Debug.Log("Gameboard Y = " + gameBoardY);
-					GameObject blockOBJ = Instantiate(HeroPrefab, new Vector3(gameBoardX,0,gameBoardY), Quaternion.identity);
-					blockOBJ.GetComponentInChildren<Renderer>().material.color = Players[0].Color;
-					Hero spawnOBJ = blockOBJ.GetComponent<Hero>();
-					break;
-				}
+				foundSpot = true;
 			}
 		}
+
+		// Spawn the hero at the empty spot
+		GameObject blockOBJ = Instantiate(HeroPrefab, new Vector3(x, 0, y), Quaternion.identity);
+		blockOBJ.GetComponentInChildren<Renderer>().material.color = Players[0].Color;
+		Hero spawnOBJ = blockOBJ.GetComponent<Hero>();
+		gameBoard[x, y] = spawnOBJ;
+		Players[0].AddHero(spawnOBJ);
+
+		// End the turn
+		EndTurn();
+
 	}
 
 	public void EndInteractedWith(Hero hero)

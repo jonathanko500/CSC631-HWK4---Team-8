@@ -15,6 +15,7 @@ public class NetworkResponseTable {
 		add(Constants.SMSG_READY, "ResponseReady");
 		add(Constants.SMSG_MOVE, "ResponseMove");
 		add(Constants.SMSG_INTERACT, "ResponseInteract");
+		add(Constants.SMSG_SCORE, "ResponseScore");
 	}
 	
 	public static void add(short response_id, string name) {
@@ -23,6 +24,10 @@ public class NetworkResponseTable {
 	
 	public static NetworkResponse get(short response_id) {
 		init ();
+
+    Debug.Log("response_id");
+    Debug.Log(response_id);
+
 		NetworkResponse response = null;
 		if (responseTable.ContainsKey(response_id)) {
 			response = (NetworkResponse) Activator.CreateInstance(responseTable[response_id]);

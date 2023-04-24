@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
 	private Hero[,] gameBoard = new Hero[6,5];
 
 	private int currentPlayer = 1;
+
+	private int playerOneScore = 0;
+	private int playerTwoScore = 0;
+  
 	private bool canInteract = false;
 	private bool choosingInteraction = false;
 
@@ -29,11 +33,22 @@ public class GameManager : MonoBehaviour
 		MessageQueue msgQueue = networkManager.GetComponent<MessageQueue>();
 		msgQueue.AddCallback(Constants.SMSG_MOVE, OnResponseMove);
 		msgQueue.AddCallback(Constants.SMSG_INTERACT, OnResponseInteract);
+		msgQueue.AddCallback(Constants.SMSG_SCORE, OnResponseScore);
 	}
 
 	public Player GetCurrentPlayer()
 	{
 		return Players[currentPlayer - 1];
+	}
+
+  public int GetPlayerOneScore()
+	{
+		return playerOneScore;
+	}
+
+    public int GetPlayerTwoScore()
+	{
+		return playerTwoScore;
 	}
 
 	public void Init(Player player1, Player player2)
@@ -115,6 +130,33 @@ public class GameManager : MonoBehaviour
 	public void EndInteractedWith(Hero hero)
 	{
 		// Do nothing
+	}
+
+	public void Score()
+	{
+		Debug.Log("Score!");
+    Hero hero = ObjectSelector.SelectedObject.GetComponentInParent<Hero>();
+    if (hero)
+		{
+			int x = hero.x;
+			int y = hero.y;
+      int score;
+      if (currentPlayer == 1) score = playerOneScore + 1;
+      else score = playerTwoScore + 1;
+
+      if (useNetwork)
+      {
+        networkManager.SendScoreRequest(hero.Index, x, y, score);
+      }       
+      if (currentPlayer == 1) playerOneScore += 1;
+      else playerTwoScore += 1;
+    }
+    else {
+      Debug.Log("No Hero Selected");
+    }
+
+
+
 	}
 
 	public void EndMove(Hero hero)
@@ -266,6 +308,33 @@ public class GameManager : MonoBehaviour
 			gameBoard[hero.x, hero.y] = null;
 			hero.Move(x, y);
 			gameBoard[x, y] = hero;
+		}
+		else if (args.user_id == Constants.USER_ID)
+		{
+			// Ignore
+		}
+		else
+		{
+			Debug.Log("ERROR: Invalid user_id in ResponseReady: " + args.user_id);
+		}
+	}
+
+  public void OnResponseScore(ExtendedEventArgs eventArgs)
+	{
+		ResponseScoreEventArgs args = eventArgs as ResponseScoreEventArgs;
+		if (args.user_id == Constants.OP_ID)
+		{
+      Debug.Log("Scoring Response is happening");
+			int score = args.score;
+      if (args.user_id == 1) {
+        Debug.Log("Player 2! ");
+        playerTwoScore = score;
+      }
+      else {
+        Debug.Log("Player 1! ");
+        playerOneScore = score;
+      }
+
 		}
 		else if (args.user_id == Constants.USER_ID)
 		{

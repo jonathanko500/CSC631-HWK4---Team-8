@@ -15,6 +15,7 @@ public class NetworkRequestTable {
 		add(Constants.CMSG_READY, "RequestReady");
 		add(Constants.CMSG_MOVE, "RequestMove");
 		add(Constants.CMSG_INTERACT, "RequestInteract");
+		add(Constants.CMSG_SCORE, "RequestScore");
 	}
 	
 	public static void add(short request_id, string name) {
@@ -22,6 +23,7 @@ public class NetworkRequestTable {
 	}
 	
 	public static NetworkRequest get(short request_id) {
+    init ();
 		NetworkRequest request = null;
 		
 		if (requestTable.ContainsKey(request_id)) {

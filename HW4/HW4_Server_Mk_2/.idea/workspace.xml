@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca50f9d1-b623-4afa-8b01-27d3086535b2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/networking/request/RequestSpawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/networking/response/ResponseSpawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW4_Client/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../HW4_Client/Assembly-CSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/Network/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/Network/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/NetworkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW4_Client/HW4_Client.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../HW4_Client/HW4_Client.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6c81dd64-a164-4b47-84c6-03e62beb4ee0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6c81dd64-a164-4b47-84c6-03e62beb4ee0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/metadata/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metadata/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/metadata/GameRequestTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metadata/GameRequestTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/networking/request/RequestSpawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/networking/request/RequestSpawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/networking/response/ResponseSpawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/networking/response/ResponseSpawn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +163,7 @@
       <workItem from="1520829154469" duration="4059000" />
       <workItem from="1682373981193" duration="429000" />
       <workItem from="1682374430469" duration="457000" />
+      <workItem from="1682375158274" duration="972000" />
     </task>
     <servers />
   </component>

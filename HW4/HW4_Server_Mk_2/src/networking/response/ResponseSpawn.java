@@ -21,12 +21,10 @@ public class ResponseSpawn extends GameResponse {
     public byte[] constructResponseInBytes() {
         GamePacket packet = new GamePacket(responseCode);
         packet.addInt32(player.getID());
-
         packet.addInt32(gameBoardX);
         packet.addInt32(gameBoardY);
 
-
-        Log.printf("Player with id %d has Scored: %d", player.getID());
+        Log.printf("Player with id %d has ended turn", player.getID());
 
         return packet.getBytes();
     }

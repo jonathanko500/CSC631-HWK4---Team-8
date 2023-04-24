@@ -12,7 +12,7 @@ import core.NetworkManager;
 public class RequestSpawn extends GameRequest {
     private int gameBoardX,gameBoardY;
     // Responses
-    private ResponseScore responseSpawn;
+    private ResponseSpawn responseSpawn;
 
     public RequestSpawn() {
         responses.add(responseSpawn = new ResponseSpawn());
@@ -20,18 +20,15 @@ public class RequestSpawn extends GameRequest {
 
     @Override
     public void parse() throws IOException {
-
         gameBoardX = DataReader.readInt(dataInput);
         gameBoardY = DataReader.readInt(dataInput);
-
     }
 
     @Override
     public void doBusiness() throws Exception {
         Player player = client.getPlayer();
-
         responseSpawn.setPlayer(player);
-        responseSpawn.setData();
+        responseSpawn.setData(gameBoardX,gameBoardY);
         NetworkManager.addResponseForAllOnlinePlayers(player.getID(), responseSpawn);
     }
 }

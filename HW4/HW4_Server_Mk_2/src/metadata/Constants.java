@@ -28,6 +28,11 @@ public class Constants {
 	final public static short SMSG_SCORE = 207;
 
 
+	public static short CMSG_SPAWN = 108;
+	public static short SMSG_SPAWN = 208;
+
+
+
 	final public static short CMSG_HEARTBEAT = 111;
 
 

@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
 
 		if (useNetwork)
 		{
-			networkManager.SendScoreRequest(gameBoardX, gameBoardY);
+			networkManager.SendSpawnRequest(gameBoardX, gameBoardY);
 		}       
 
 	}

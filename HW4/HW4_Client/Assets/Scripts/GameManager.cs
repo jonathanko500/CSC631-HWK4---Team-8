@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
 	private bool useNetwork;
 	private NetworkManager networkManager;
 
+
+	//spawn obj
+
+	private int gameBoardX, gameBoardY;
+
 	void Start()
 	{
 		DontDestroyOnLoad(gameObject);
@@ -89,6 +94,37 @@ public class GameManager : MonoBehaviour
 	public void EndInteraction(Hero hero)
 	{
 		EndTurn();
+	}
+	
+	public void Spawn()
+	{		
+		Debug.Log("Something Spawn");
+		int gameBoardX = 0;
+		int gameBoardY = 0;
+		
+		// Search for an empty spot on the game board
+		bool foundSpot = false;
+		while (!foundSpot)
+		{
+			gameBoardX = UnityEngine.Random.Range(0, 6);
+			gameBoardY = UnityEngine.Random.Range(0, 5);
+			if (gameBoard[gameBoardX, gameBoardY] == null)
+			{
+				foundSpot = true;
+			}
+		}
+
+		// Spawn the hero at the empty spot
+		GameObject blockOBJ = Instantiate(HeroPrefab, new Vector3(gameBoardX, 0, gameBoardY), Quaternion.identity);
+		blockOBJ.GetComponentInChildren<Renderer>().material.color = Players[0].Color;
+		Hero spawnOBJ = blockOBJ.GetComponent<Hero>();
+		gameBoard[gameBoardX, gameBoardY] = spawnOBJ;
+		Players[0].AddHero(spawnOBJ);
+
+		//currentPlayer = 3 - currentPlayer;
+		// End the turn
+		EndTurn();
+
 	}
 
 	public void EndInteractedWith(Hero hero)

@@ -17,7 +17,7 @@ public class Player
 		UserID = userID;
 		Name = name;
 		Color = color;
-		Heroes = new Hero[5];
+		Heroes = new Hero[100];
 		IsMouseControlled = isMouseControlled;
 	}
 

@@ -31,7 +31,6 @@ public class ActionMenu : MonoBehaviour
 	void Update()
 	{
 		interactButton.interactable = gameManager.CanInteract();
-		//spawnButton.interactable = gameManager.CanInteract();
 		turnIndicator.text = gameManager.GetCurrentPlayer().Name + "'s turn";
 	}
 }

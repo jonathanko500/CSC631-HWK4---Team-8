@@ -4,7 +4,6 @@ package core;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.ServerSocket;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

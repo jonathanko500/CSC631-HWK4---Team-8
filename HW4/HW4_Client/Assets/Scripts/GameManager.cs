@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
 	private Hero[,] gameBoard = new Hero[6,5];
 
 	private int currentPlayer = 1;
+
+	private int playerOneScore = 0;
+	private int playerTwoScore = 0;
+  
 	private bool canInteract = false;
 	private bool choosingInteraction = false;
 
@@ -29,6 +33,16 @@ public class GameManager : MonoBehaviour
 	public Player GetCurrentPlayer()
 	{
 		return Players[currentPlayer - 1];
+	}
+
+  public int GetPlayerOneScore()
+	{
+		return playerOneScore;
+	}
+
+    public int GetPlayerTwoScore()
+	{
+		return playerTwoScore;
 	}
 
 	public void Init(Player player1, Player player2)
@@ -79,6 +93,33 @@ public class GameManager : MonoBehaviour
 	public void EndInteractedWith(Hero hero)
 	{
 		// Do nothing
+	}
+
+	public void Score()
+	{
+		Debug.Log("Score!");
+    Hero hero = ObjectSelector.SelectedObject.GetComponentInParent<Hero>();
+    if (hero)
+		{
+			int x = hero.x;
+			int y = hero.y;
+      int score;
+      if (currentPlayer == 1) score = playerOneScore + 1;
+      else score = playerTwoScore + 1;
+
+      if (useNetwork)
+      {
+        networkManager.SendScoreRequest(hero.Index, x, y, score);
+      }       
+      if (currentPlayer == 1) playerOneScore += 1;
+      else playerTwoScore += 1;
+    }
+    else {
+      Debug.Log("No Hero Selected");
+    }
+
+
+
 	}
 
 	public void EndMove(Hero hero)

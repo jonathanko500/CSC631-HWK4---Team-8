@@ -20,6 +20,9 @@ public class Constants
 	public static readonly short SMSG_INTERACT = 206;
 	public static readonly short CMSG_HEARTBEAT = 111;
 
+  public static short CMSG_SCORE = 107;
+	public static short SMSG_SCORE = 207;
+
 	public static int USER_ID = -1;
 	public static int OP_ID = -1;
 }

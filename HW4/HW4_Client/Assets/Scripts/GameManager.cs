@@ -84,46 +84,31 @@ public class GameManager : MonoBehaviour
 	public void Spawn()
 	{
 		Debug.Log("Something Spawn");
-
-		GameObject blockOBJ = Instantiate(HeroPrefab, new Vector3(0, 0, 1), Quaternion.identity);
-		blockOBJ.GetComponentInChildren<Renderer>().material.color = Players[0].Color;
-		Hero spawnOBJ = blockOBJ.GetComponent<Hero>();
-
-		if(spawnOBJ != null){
-			Debug.Log("Spawn OBJ created");
-		}
-
 		
-		//x = 0 - 5
-		//y = 0 - 4
 
         // Generate a random integer between 0 and 5 (inclusive)
-        gameBoardX = UnityEngine.Random.Range(0, 6);
-		gameBoardY= UnityEngine.Random.Range(0, 5);
-		Debug.Log("Gameboard X = " + gameBoardX);
-		Debug.Log("Gameboard Y = " + gameBoardY);
+        gameBoardX = UnityEngine.Random.Range(1, 6);
+		gameBoardY = UnityEngine.Random.Range(1, 5);
+		//x = 1 - 5
+		//y = 1 - 4
+		
 
 		//search through gameboard
-		for(int i =0;i< gameBoard.GetLength(0);i++)
+		for(int i = 0;i< gameBoard.GetLength(0);i++)
 		{
-			for(int j =0; j < gameBoard.GetLength(1); j++)
+			for(int j = 0; j < gameBoard.GetLength(1); j++)
 			{
-				if(gameBoard[i,j] != null && gameBoard[i,j] != spawnOBJ)
+				if(gameBoard[i,j] != null )
 				{
-					gameBoardX = UnityEngine.Random.Range(0, 6);
-					gameBoardY= UnityEngine.Random.Range(0, 5);
-					// Debug.Log("Gameboard X after search = " + gameBoardX);
-					// Debug.Log("Gameboard Y after search = " + gameBoardY);
+					Debug.Log("Gameboard X = " + gameBoardX);
+					Debug.Log("Gameboard Y = " + gameBoardY);
+					GameObject blockOBJ = Instantiate(HeroPrefab, new Vector3(gameBoardX,0,gameBoardY), Quaternion.identity);
+					blockOBJ.GetComponentInChildren<Renderer>().material.color = Players[0].Color;
+					Hero spawnOBJ = blockOBJ.GetComponent<Hero>();
 					break;
 				}
 			}
 		}
-
-		gameBoard[gameBoardX, gameBoardY] = spawnOBJ;
-
-
-
-
 	}
 
 	public void EndInteractedWith(Hero hero)

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -121,9 +121,14 @@ public class GameManager : MonoBehaviour
 		gameBoard[gameBoardX, gameBoardY] = spawnOBJ;
 		Players[0].AddHero(spawnOBJ);
 
-		//currentPlayer = 3 - currentPlayer;
+		
 		// End the turn
 		EndTurn();
+
+		if (useNetwork)
+		{
+			networkManager.SendScoreRequest(gameBoardX, gameBoardY);
+		}       
 
 	}
 

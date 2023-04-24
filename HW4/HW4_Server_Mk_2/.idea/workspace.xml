@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca50f9d1-b623-4afa-8b01-27d3086535b2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/networking/request/RequestSpawn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/networking/response/ResponseSpawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4_Client/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../HW4_Client/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/Network/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/Network/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../HW4_Client/Assets/Scripts/NetworkManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4_Client/HW4_Client.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../HW4_Client/HW4_Client.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6c81dd64-a164-4b47-84c6-03e62beb4ee0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6c81dd64-a164-4b47-84c6-03e62beb4ee0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/gameServer.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/gameServer.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/networking/request/RequestScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/networking/request/RequestScore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/networking/response/ResponseScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/networking/response/ResponseScore.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,22 +68,27 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1YH2f2lZiSHZ51y8U7vb5Fp2onT" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Programming/CSC631-HWK4---Team-8/HW4/HW4_Server_Mk_2",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pie88/OneDrive/Desktop/CSC631-HWK4---Team-8/HW4/HW4_Server_Mk_2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
@@ -154,6 +167,8 @@
       <workItem from="1520764081593" duration="4744000" />
       <workItem from="1520787360406" duration="7221000" />
       <workItem from="1520829154469" duration="4059000" />
+      <workItem from="1682373981193" duration="429000" />
+      <workItem from="1682374430469" duration="457000" />
     </task>
     <servers />
   </component>
@@ -161,7 +176,18 @@
     <option name="totallyTimeSpent" value="31748000" />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="masterDetails">
     <states>

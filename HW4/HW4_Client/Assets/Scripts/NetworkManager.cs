@@ -103,6 +103,18 @@ public class NetworkManager : MonoBehaviour
 		return false;
 	}
 
+	public bool SendSpawnRequest(int gameBoardX, int gameBoardY)
+	{
+		if (cManager && cManager.IsConnected())
+		{
+			RequestSpawn request = new RequestSpawn();
+			request.send(gameBoardX, gameBoardY);
+			cManager.send(request);
+			return true;
+		}
+		return false;
+	}
+
 	public bool SendInteractRequest(int pieceIndex, int targetIndex)
 	{
 		if (cManager && cManager.IsConnected())

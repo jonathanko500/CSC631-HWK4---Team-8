@@ -84,28 +84,29 @@ public class GameManager : MonoBehaviour
 	public void Spawn()
 	{		
 		Debug.Log("Something Spawn");
-		int x = 0;
-		int y = 0;
+		int gameBoardX = 0;
+		int gameBoardY = 0;
 		
 		// Search for an empty spot on the game board
 		bool foundSpot = false;
 		while (!foundSpot)
 		{
-			x = UnityEngine.Random.Range(0, 6);
-			y = UnityEngine.Random.Range(0, 5);
-			if (gameBoard[x, y] == null)
+			gameBoardX = UnityEngine.Random.Range(0, 6);
+			gameBoardY = UnityEngine.Random.Range(0, 5);
+			if (gameBoard[gameBoardX, gameBoardY] == null)
 			{
 				foundSpot = true;
 			}
 		}
 
 		// Spawn the hero at the empty spot
-		GameObject blockOBJ = Instantiate(HeroPrefab, new Vector3(x, 0, y), Quaternion.identity);
+		GameObject blockOBJ = Instantiate(HeroPrefab, new Vector3(gameBoardX, 0, gameBoardY), Quaternion.identity);
 		blockOBJ.GetComponentInChildren<Renderer>().material.color = Players[0].Color;
 		Hero spawnOBJ = blockOBJ.GetComponent<Hero>();
-		gameBoard[x, y] = spawnOBJ;
+		gameBoard[gameBoardX, gameBoardY] = spawnOBJ;
 		Players[0].AddHero(spawnOBJ);
 
+		//currentPlayer = 3 - currentPlayer;
 		// End the turn
 		EndTurn();
 

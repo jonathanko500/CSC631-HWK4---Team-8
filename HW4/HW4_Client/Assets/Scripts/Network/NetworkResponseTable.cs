@@ -24,6 +24,10 @@ public class NetworkResponseTable {
 	
 	public static NetworkResponse get(short response_id) {
 		init ();
+
+    Debug.Log("response_id");
+    Debug.Log(response_id);
+
 		NetworkResponse response = null;
 		if (responseTable.ContainsKey(response_id)) {
 			response = (NetworkResponse) Activator.CreateInstance(responseTable[response_id]);

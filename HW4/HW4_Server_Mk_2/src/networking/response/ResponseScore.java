@@ -13,6 +13,7 @@ public class ResponseScore extends GameResponse {
     private Player player;
     private int x;
     private int y;
+    private int score;
     private int index;
 
     public ResponseScore() {
@@ -26,8 +27,9 @@ public class ResponseScore extends GameResponse {
         packet.addInt32(index);
         packet.addInt32(x);
         packet.addInt32(y);
+        packet.addInt32(score);
 
-        Log.printf("Player with id %d has Scored", player.getID());
+        Log.printf("Player with id %d has Scored: %d", player.getID(), score);
  
         return packet.getBytes();
     }
@@ -36,9 +38,10 @@ public class ResponseScore extends GameResponse {
         this.player = player;
     }
 
-    public void setData(int index, int x, int y) {
+    public void setData(int index, int x, int y, int score) {
         this.index = index;
         this.y = y; 
         this.x = x;
+        this.score = score;
     }
 }

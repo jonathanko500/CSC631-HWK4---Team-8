@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 		MessageQueue msgQueue = networkManager.GetComponent<MessageQueue>();
 		msgQueue.AddCallback(Constants.SMSG_MOVE, OnResponseMove);
 		msgQueue.AddCallback(Constants.SMSG_INTERACT, OnResponseInteract);
+		msgQueue.AddCallback(Constants.SMSG_SCORE, OnResponseScore);
 	}
 
 	public Player GetCurrentPlayer()
@@ -271,6 +272,33 @@ public class GameManager : MonoBehaviour
 			gameBoard[hero.x, hero.y] = null;
 			hero.Move(x, y);
 			gameBoard[x, y] = hero;
+		}
+		else if (args.user_id == Constants.USER_ID)
+		{
+			// Ignore
+		}
+		else
+		{
+			Debug.Log("ERROR: Invalid user_id in ResponseReady: " + args.user_id);
+		}
+	}
+
+  public void OnResponseScore(ExtendedEventArgs eventArgs)
+	{
+		ResponseScoreEventArgs args = eventArgs as ResponseScoreEventArgs;
+		if (args.user_id == Constants.OP_ID)
+		{
+      Debug.Log("Scoring Response is happening");
+			int score = args.score;
+      if (args.user_id == 1) {
+        Debug.Log("Player 2! ");
+        playerTwoScore = score;
+      }
+      else {
+        Debug.Log("Player 1! ");
+        playerOneScore = score;
+      }
+
 		}
 		else if (args.user_id == Constants.USER_ID)
 		{

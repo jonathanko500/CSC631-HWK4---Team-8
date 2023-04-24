@@ -10,7 +10,7 @@ import utility.DataReader;
 import core.NetworkManager;
 
 public class RequestScore extends GameRequest {
-    private int pieceIndex, x, y;
+    private int pieceIndex, x, y, score;
     // Responses
     private ResponseScore responseScore;
 
@@ -23,6 +23,7 @@ public class RequestScore extends GameRequest {
         pieceIndex = DataReader.readInt(dataInput);
         x = DataReader.readInt(dataInput);
         y = DataReader.readInt(dataInput);
+        score = DataReader.readInt(dataInput);
     }
 
     @Override
@@ -30,7 +31,7 @@ public class RequestScore extends GameRequest {
         Player player = client.getPlayer();
 
         responseScore.setPlayer(player);
-        responseScore.setData(pieceIndex, x, y);
+        responseScore.setData(pieceIndex, x, y, score);
         NetworkManager.addResponseForAllOnlinePlayers(player.getID(), responseScore);
     }
 }

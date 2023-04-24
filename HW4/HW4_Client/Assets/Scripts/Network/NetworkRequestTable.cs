@@ -23,6 +23,7 @@ public class NetworkRequestTable {
 	}
 	
 	public static NetworkRequest get(short request_id) {
+    init ();
 		NetworkRequest request = null;
 		
 		if (requestTable.ContainsKey(request_id)) {
